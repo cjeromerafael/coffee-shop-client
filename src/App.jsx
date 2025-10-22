@@ -9,6 +9,7 @@ import Menu from "./pages/Menu";
 import Contact from "./pages/Contact";
 import Reviews from "./pages/Reviews";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 
 import HotDrinks from "./pages/menu/HotDrinks";
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route
           path="/reviews"
           element={
