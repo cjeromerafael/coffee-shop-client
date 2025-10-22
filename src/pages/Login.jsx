@@ -9,19 +9,23 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("Attempting login with:", username, password);
 
     try {
+      // ✅ Use your Render backend instead of localhost
       const res = await fetch(
         `https://coffee-shop-server-rwgb.onrender.com/login?username=${username}&password=${password}`
       );
+
       const data = await res.json();
 
       if (data.success) {
+        // Store login state temporarily (clears when browser closes)
         sessionStorage.setItem("isAuthenticated", "true");
         console.log("✅ Logged in successfully!");
         navigate("/reviews");
       } else {
-        alert("Invalid credentials! Please try again.");
+        alert("Invalid credentials! Try again.");
       }
     } catch (error) {
       console.error("❌ Login error:", error);
@@ -53,16 +57,8 @@ function Login() {
             required
           />
         </div>
-        <button type="submit" className="btn btn-dark w-100 mb-3">
+        <button type="submit" className="btn btn-dark w-100">
           Login
-        </button>
-
-        <button
-          type="button"
-          className="btn btn-outline-dark w-100"
-          onClick={() => navigate("/signup")}
-        >
-          Sign Up
         </button>
       </form>
     </div>
