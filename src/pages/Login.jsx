@@ -12,10 +12,11 @@ function Login() {
     console.log("Attempting login with:", username, password);
 
     try {
-      // Send login request to Node.js backend
+      // ✅ Use your Render backend instead of localhost
       const res = await fetch(
-        `http://localhost:5000/login?username=${username}&password=${password}`
+        `https://coffee-shop-server-rwgb.onrender.com/login?username=${username}&password=${password}`
       );
+
       const data = await res.json();
 
       if (data.success) {
